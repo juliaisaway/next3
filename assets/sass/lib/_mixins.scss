@@ -1,0 +1,270 @@
+////
+/// Mixins.scss
+/// Neste arquivo estão localizados todos os mixins padrão
+/// para todos os projetos NEXT.
+/// Novos mixins serão adicionadas com o tempo e podem ser
+/// conferidas em http://artmaker.website/next/sassdoc/
+/// @author Ilton Alberto Junior
+////
+
+/// Mixin para aplicação facilitada de tamanho nos elementos
+/// Utilizado para inserção altomática das propriedades width e height.
+/// Ambas as propriedades aceitam serem usadas com ou sem unidades de medida, incluindo valores como auto ou inherit;
+/// @param {number | string} $width - Largura do elemento.
+/// @param {number | string | null} $height [null] - Altura do elemento. Caso não seja definido um parâmetro, ele utilizará o mesmo valor da largura.
+/// @example @include size(728,60);
+/// @example @include size(100%,auto);
+@mixin size($width, $height: null) {
+  width: is-number-unit($width);
+  height: if($height, is-number-unit($height), is-number-unit($width));
+}
+
+/// Mixin utilizado para inserção de prefixos de navegadores para compatibilidade
+/// @param {mixed} $map - Propriedade a ser prefixada.
+/// @param {string | list} $vendors [webkit moz ms o] - Lista de vendors para prefixos.
+/// @author Hugo Giraudel
+/// @example @include prefix((transition: .3s ease-in));
+@mixin prefix($map, $vendors: webkit moz ms o) {
+  @each $prop, $value in $map {
+    @if $vendors {
+      @each $vendor in $vendors {
+        #{"-" + $vendor + "-" + $prop}: #{$value};
+      }
+    }
+    #{$prop}: #{$value};
+  }
+}
+
+/// Mixin para inserção facilitada de breakpoints mobile
+/// @param {string} $value - Resolução do breakpoint para inserção do @media.
+/// @content Conteúdo de personalização do breakpoint.
+/// @example @include breakpoint(tablet);
+/// @author Hugo Giraudel, modificado por Ilton Alberto Junior
+@mixin breakpoint($value: mobile) {
+  @if map-has-key($breakpoints, $value) {
+    @media screen and #{inspect(map-get($breakpoints, $value))} {
+      @content;
+    }
+  }
+  @else {
+    @warn "Couldn't find a breakpoint named `#{$value}`.";
+  }
+}
+
+/// Mixin para aplicação facilitada de centralização por flexbox
+/// @param {string} $display [flex] - Valor do atributo `display` do elemento (flex ou inline-flex).
+/// @param {string} $valign [null] - Valor do atributo `align-itens` para alinhamento vertical.
+/// @param {string} $halign [null] - Valor do atributo `justify-content` para alinhamento horizontal.
+/// @param {string} $wrap [wrap] - Valor do atributo `flex-wrap` para definir se o elemento irá dar wrap.
+/// @example @include flexbox(ambos);
+@mixin flexbox($display: flex, $valign: null, $halign: null, $wrap: wrap) {
+  display: $display;
+  align-items: $valign;
+  justify-content: $halign;
+  flex-wrap: $wrap;
+}
+
+/// Mixin para inverter conteúdos.
+/// Ao incluí-lo, espelha horizontalmente qualquer elemento.
+/// @example @include flipimage;
+@mixin flipimage {
+  $ms: '-ms';
+  @include prefix((transform: scaleX(-1)));
+  #{$ms}-filter: 'FlipH';
+}
+
+/// Mixin para inserção facilitada de fontes
+/// @param {string} $family - Nome da fonte
+/// @param {number | string} $size - Tamanho da fonte a ser inserida
+/// @param {number} $weight - Peso da fonte
+/// @example @include font(Intro, 14, 900);
+@mixin font($family, $size, $weight: 400) {
+  font: {
+    family: quote($family), $main-font;
+    size: is-number-unit($size);
+    weight: $weight;
+  }
+}
+
+/// Mixin de inclusão facilitada de fontes customizadas via Font-Face.
+/// @link https://gist.github.com/Ghosh/84d4842d520b72e026fb
+/// @param {string} $font-family Nome da família de fontes.
+/// @param {string} $font-file Nome do arquivo da fonte localizado na pasta /fonts/.
+/// @param {number} $font-weight Peso da fonte (aceita valores numéricos e valores padrão (normal, bold, lighter).
+/// @param {string} $font-weight Estilo da fonte (normal, italic).
+@mixin font-face($font-family, $font-file, $font-weight, $font-style) {
+  @font-face {
+    font-family: $font-family;
+    src: font-url($font-file + '.eot');
+    src: font-url($font-file + '.eot?#iefix') format('embedded-opentype'),
+    font-url($font-file + '.woff') format('woff'),
+    font-url($font-file + '.ttf') format('truetype'),
+    font-url($font-file + '.svg##{$font-family}') format('svg');
+    font-weight: $font-weight;
+    font-style: $font-style;
+  }
+}
+
+/// Mixin para coversão em escala de cinza.
+/// Ao incluí-lo, converte o elemento, voltando as suas cores originais no hover.
+/// @param {bool} $hover [true] - Habilita a exibição da cor original no hover.
+/// @example @include grayscale;
+@mixin grayscale($hover: true) {
+  $webkit: '-webkit';
+  #{$webkit}-filter: grayscale(100%);
+  transition: all 0.3s ease 0.1s;
+  #{$webkit}-backface-visibility: hidden;
+  @if ($hover == true) {
+    &:hover {
+      filter: none;
+      #{$webkit}-filter: grayscale(0%);
+    }
+  }
+}
+
+/// Mixin para inserção facilitada de novos keyframes.
+/// Ao incluí-lo, gera automaticamente os keyframes já em todas as versões
+/// compatíveis com outros navegadores.
+/// @param {string} $name - Nome do keyframe.
+/// @content Valores do Keyframe
+/// @example @include keyframe(fadein);
+@mixin keyframe($name) {
+  @keyframes #{$name} {
+    @content
+  }
+  @-moz-keyframes #{$name} {
+    @content
+  }
+  @-webkit-keyframes #{$name} {
+    @content
+  }
+  @-ms-keyframes #{$name} {
+    @content
+  }
+  @-o-keyframes #{$name} {
+    @content
+  }
+}
+
+/// Mixin de edição do texto de Placeholder dos formulários.
+/// @param {Number} $font Tamanho em Pixels do texto de placeholder.
+/// @param {string} $color Cor do texto de placeholder.
+/// @example @include placeholder(13, $black);
+@mixin placeholder($font, $color) {
+  $prefixes: '::-webkit-input', '::-moz', ':-moz', ':-ms-input';
+  @each $vendor in $prefixes {
+    #{$vendor}-placeholder {
+      font-size: rem($font);
+      color: $color;
+    }
+  }
+}
+
+/// Mixin para inserção de posicionamento e z-index.
+/// Cada variável é opcional e não precisa ser preenchida necessariamente;
+/// @param {string} $position [absolute] - Atributo position de CSS
+/// @param {number} $top [null] - Valor do posicionamento do topo
+/// @param {number} $right [null] - Valor do posicionamento da direita
+/// @param {number} $bottom [null] - Valor do posicionamento da base
+/// @param {number} $left [null] - Valor do posicionamento da esquerda
+/// @param {number} $zindex [null] - Valor de Z-Index do elemento
+/// @example @include position($top: 30, $left: 30, $zindex: 9999);
+@mixin position($position: absolute, $top: null, $right: null, $bottom: null, $left: null, $zindex: null) {
+  position: $position;
+  top: is-number-unit($top);
+  right: is-number-unit($right);
+  bottom: is-number-unit($bottom);
+  left: is-number-unit($left);
+  z-index: $zindex;
+}
+
+/// Mixin para manter uma div sempre proporcional aos seus parâmetros.
+/// @link http://codepen.io/jakob-e/pen/WvrJwN
+/// @param {number | list} $arglist... - Valores da proporção.
+/// @example @include proportion(4, 3);
+/// @author jakob-e, modificado por Ilton Alberto Junior
+@mixin proportion($arglist...) {
+  &::before {
+    content: '';
+    float: left;
+    padding-bottom: ratio($arglist);
+    margin-right: -100%;
+  }
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
+}
+
+/// Mixin para transformar qualquer vídeo em responsivo.
+/// Ao inserí-lo, permite que qualquer vídeo se torne responsivo relativo a sua div pai.
+/// @param {number | list} $ratio - Valores da proporção.
+/// @example @include responsive-video;
+@mixin responsive-video($ratio...) {
+  position: relative;
+  padding-bottom: ratio($ratio);
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+  iframe,
+  object,
+  embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include size(100%);
+  }
+}
+
+/// Mixin para customizar a barra de rolagem do navegador
+/// Compatível apenas com webkit/blink
+/// @param {Length} $size - Horizontal scrollbar's height and vertical scrollbar's width
+/// @param {Color} $foreground-color - Scrollbar's color
+/// @param {Color} $background-color [mix($primary, white, 75%)] - Scrollbar's color
+/// @author Hugo Giraudel
+/// @example @include scrollbars(.5em, slategray);
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white, 50%)) {
+  ::-webkit-scrollbar {
+    width:  $size;
+    height: $size;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: $foreground-color;
+    &:hover {
+      background: darken($foreground-color, 10);
+    }
+  }
+  ::-webkit-scrollbar-track {
+    background: $background-color;
+  }
+  body {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}
+
+/// Mixin de estilização da seleção de texto do website.
+/// @param {string} $bg Cor de background da caixa de seleção.
+/// @param {string} $color Cor do texto selecionado.
+/// @example @include selection($black, $white);
+@mixin selection($bg, $color) {
+  $prefix: '-moz, -o, -webkit, -ms';
+  @each $vendors in $prefix {
+    #{"::" + $vendors}-selection {
+      background: $bg;
+      color: $color;
+    }
+  }
+  ::selection {
+    background: $bg;
+    color: $color;
+  }
+}
+
+/// Mixin de inclusão facilitada de transições CSS.
+/// @param {string} $args... Argumentos de transição CSS.
+/// @example @include transition(.3s ease-in);
+@mixin transition($args...) {
+  @include prefix((transition: $args));
+}

@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+////
+/// Arquivo de estilização do Painel Adminstrativo
+/// Neste arquivo estão localizados todos os arquivos em SASS do projeto do site.
+/// Favor não inserir nenhuma classe neste arquivo, apenas includes.
+////
+
+/// Arquivo de Variáveis do CMS.
+/// Todas as variáveis possívels do painel adminstrativo se localizam neste único arquivo.
+@import 'admin/variables';
+
+/// Arquivos padrão do SASS.
+/// Não altere nenhum desses arquivos.
+@import 'compass';
+@import 'lib/functions';
+@import 'lib/mixins';
+@import 'lib/lib';
+
+/// Arquivos do sistema de Grid NEXT
+/// Ative sua funcionalidade no arquivo _variables.scss
+@import 'lib/grid';
+
+/// Includes das páginas de estilo do painel adminstrativo.
+/// Inserir abaixo um novo arquivo .scss para cada novo arquivo do CMS.
+@import 'admin/main';
+@import 'admin/includes/mixins';
+@import 'admin/includes/login';
+@import 'admin/includes/header';
+@import 'admin/includes/sidebar';
+@import 'admin/includes/assets';
+

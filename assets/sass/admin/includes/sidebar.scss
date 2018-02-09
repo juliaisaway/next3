@@ -1,0 +1,51 @@
+////
+/// Arquivo de estilização de barra lateral do Painel Adminstrativo
+/// Neste arquivo estão localizados todos os estilos visuais para o cabeçalho do site
+////
+
+.main-sidebar {
+  background: $admin-sidebar-color;
+  padding: 15px 0;
+  box-sizing: border-box;
+  height: 100%;
+  min-height: calc(100vh - 60px);
+  @include size(250, auto);
+  @include transition(.5s ease-in-out);
+  @include position($top: 0, $bottom: 0, $left: 0, $zindex: 180);
+  @include breakpoint {
+    left: -250px;
+  }
+  &.collapsed {
+    left: -250px;
+    @include breakpoint {
+      left: 0;
+    }
+  }
+  ul li a {
+    padding: 15px;
+    color: $white;
+    display: block;
+    text-transform: uppercase;
+    @include font('Open Sans', 12px);
+    @include transition(.2s ease-in);
+    i {
+      font-size: 14px;
+      margin-right: 10px;
+    }
+    &:hover {
+      background-color: rgba($white, .1);
+    }
+  }
+}
+
+.submenu {
+  &:after {
+    content: '\f107';
+    float: right;
+    @include font('FontAwesome', 16);
+  }
+}
+
+.dropdown {
+  background-color: lighten($admin-sidebar-color, 5);
+}

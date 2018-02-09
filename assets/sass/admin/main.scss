@@ -1,0 +1,84 @@
+////
+/// Arquivo de estilização do Painel Adminstrativo
+/// Neste arquivo estão localizados todos os estilos visuais para o
+/// painel adminstrativo do website.
+////
+
+@include scrollbars(.5em, $admin-main-color, $admin-lighten-main-color);
+
+// **************************************************
+// CSS RESET
+// Pequenos hacks para resetar os estilos padrão do CSS
+// **************************************************
+
+* {
+  margin:0;
+  padding:0;
+  list-style:none;
+  vertical-align:baseline;
+}
+
+a {
+  text-decoration: none;
+  &:not(.blue-link){
+    color: $admin-main-color;
+  }
+  &.blue-link{
+    color: $admin-main-color;
+  }
+  &:focus, &:active, &:hover, &:visited {
+    text-decoration: none;
+  }
+}
+
+:focus { outline:none; }
+
+// **************************************************
+// MAIN CONTENT
+// Estilização do conteúdo principal do CMS
+// **************************************************
+
+.content-holder {
+  position: relative;
+  height: 100%;
+  min-height: calc(100vh - 60px);
+  @include breakpoint {
+    overflow-x: hidden;
+  }
+}
+
+.main {
+  overflow: auto;
+  padding: 30px 15px;
+  @include transition(.5s ease-in-out);
+  @include position($top: 0, $bottom: 0, $left: 250px, $right: 0);
+  @include breakpoint {
+    position: relative;
+    padding: 30px 0;
+    width: 100%;
+    left: 0;
+  }
+  &.collapsed {
+    left: 0;
+    @include breakpoint {
+      left: 250px;
+    }
+  }
+}
+
+// **************************************************
+// FOOTER
+// Estilização do rodapé do CMS
+// **************************************************
+
+.credits {
+  color: $darkgray;
+  margin: 30px 0;
+  padding-top: 15px;
+  border-top: 1px solid $admin-lighten-main-color;
+  @include font('Open Sans', 12);
+  @include flexbox($halign: space-between);
+  a {
+    color: $darkgray;
+  }
+}

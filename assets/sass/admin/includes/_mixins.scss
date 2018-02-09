@@ -1,0 +1,142 @@
+////
+/// Arquivo de estilização do Painel Adminstrativo
+/// Neste arquivo estão localizados todos os estilos visuais para o
+/// painel adminstrativo do website.
+////
+
+/// Função para mudar a cor da fonte dinamicamente baseado no background
+/// @param {string} $color - Cor do background.
+/// @example font-color(#ff0);
+@function font-color($color) {
+  @if (lightness($color) > 60) {
+    @return $darkgray;
+  } @else {
+    @return $white;
+  }
+}
+
+@mixin option-button($background) {
+  color: font-color($background);
+  display: inline-block;
+  padding: 10px 12px;
+  border: 1px solid;
+  text-align: center;
+  border-color: $admin-lighten-main-color;
+  background-color: $background;
+  @include transition(.2s ease-in);
+  &:hover {
+    background-color: darken($background, 10);
+  }
+}
+
+/// Mixin utlizado para controlar os alertas do CMS
+/// Utilizado para inserção altomática das propriedades width e height.
+/// Ambas as propriedades aceitam serem usadas com ou sem unidades de medida, incluindo valores como auto ou inherit;
+/// @param {string} $border-color [$admin-main-color] - Cor da borda do elemento.
+/// @param {string | null} $background [null] - Cor de fundo do elemento. Caso não seja definido um parâmetro, ele utilizará o mesmo valor da borda.
+/// @example @include size(728,60);
+@mixin alert($border-color: $admin-main-color, $background: null) {
+  width: 100%;
+  padding: 15px;
+  margin: 15px 0;
+  color: $darkgray;
+  border: 1px solid if($border-color == $admin-main-color, rgba($border-color, .2), $border-color);
+  background: if($background, $background, lighten($border-color, 10));
+  @include font('Open Sans', 14);
+  h2 {
+    margin: 0 0 5px;
+    @include font('Open Sans', 16, 600);
+  }
+}
+
+
+/// Mixin utilizado para gerar os pequenos helpers ao lado dos títulos de sessões
+/// @param {string} $background - Cor de fundo do elemento;
+/// @param {string} $color [$darkgray] - Cor da fonte do elemento;
+/// @example @include helper($admin-helper);
+@mixin helper($background, $color: $admin-helper-font) {
+  background: $background;
+  color: $color;
+  margin: 0 10px;
+  padding: 5px 8px;
+  border-radius: 5px;
+  font-style: italic;
+  @include font('Open Sans', 10);
+  @include breakpoint {
+    margin: 10px 0 0;
+    display: block;
+  }
+}
+
+/// Mixin para adicionar um hover com uma mensagem de ampliar/alterar
+/// @example @include hover-message();
+@mixin hover-message() {
+  &:hover {
+    .thumb_hover {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  .thumb_hover {
+    opacity: 0;
+    visibility: hidden;
+    color: $white;
+    text-align: center;
+    background: rgba($black, .8);
+    @include transition(.2s ease-in);
+    @include font('Open Sans', 16, 300);
+    @include flexbox($valign: center, $halign: center);
+    @include position($top: 0, $bottom: 0, $left: 0, $right: 0, $zindex: 150);
+  }
+}
+
+
+
+/************************************/
+
+
+
+@mixin float-label-container {
+  display: block;
+  position: relative;
+}
+
+@mixin float-label {
+  label, > span {
+    position: absolute;
+    left: 0;
+    top: 0;
+    cursor: text;
+    color: $black;
+    font: {
+      family: $main-font;
+      size: 11px;
+      weight: 700;
+    }
+    opacity: 1;
+    transition: all .2s;
+    @content;
+  }
+}
+
+@mixin float-label-input {
+  &::placeholder {
+    opacity: 0;
+    transition: all .2s;
+  }
+  &:placeholder-shown:not(:focus)::placeholder {
+    opacity: 0;
+  }
+}
+
+@mixin float-label-scaled {
+  &:placeholder-shown:not(:focus) + * {
+    font-size: 14px;
+    opacity: .8;
+    font: {
+      family: $main-font;
+      weight: 500;
+    }
+    @content;
+  }
+}

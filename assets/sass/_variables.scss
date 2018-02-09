@@ -1,0 +1,39 @@
+////
+/// Variáveis do site
+/// Todas as variáveis do projeto estrão inclusas neste arquivo central.
+////
+
+/// Configurações Iniciais
+$grid-active: true;
+
+// Cores padrões do projeto NEXT
+$white: #fff;
+$black: #000;
+$darkgray: #666;
+$overlay: #999;
+$light-background: #f0f0f0;
+$darker-font: #333;
+$button-light: #ccc;
+
+// Cores relacionadas ao website
+$site-main-color: #088FD3;
+
+// Valores para resolução de breakpoints
+$breakpoints: (
+  'mobile' : (max-width: 768px),
+  'tablet' : (max-width: 920px),
+  'notebook' : (max-width: 1366px)
+);
+
+// Configurações de Fontes.
+$rem-base: 14px;
+$main-font: 'Open Sans', sans-serif;
+
+// Fontes utilizadas em @font-face.
+$font-faces: (
+  'Intro': (
+    'Intro-Black' 900 normal,
+    'Intro-Light' 300 normal,
+    'Intro-Thin-Italic' 200 normal,
+  ),
+);

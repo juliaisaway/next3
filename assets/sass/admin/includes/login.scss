@@ -1,0 +1,96 @@
+////
+/// Arquivo de estilização do login do Painel Adminstrativo
+/// Neste arquivo estão localizados todos os estilos visuais para a página de login
+////
+
+.login {
+  min-width: 100vw;
+  min-height: 100vh;
+  background: $admin-main-color;
+  @include flexbox($valign: center, $halign: center);
+}
+
+.login-box {
+  width: 100%;
+  max-width: 400px;
+  background: $white;
+  padding: 70px 50px;
+  box-shadow: 0 8px 10px -5px rgba($black,.2), 0 16px 24px 2px rgba($black,.14), 0 6px 30px 5px rgba($black,.12);
+}
+
+.logo-box {
+  @include flexbox($valign: center, $halign: center);
+  margin: 0 auto 15px;
+  img {
+    padding: 0;
+    @include size(auto, calc(#{$logo-height} * 1.5));
+  }
+}
+
+.esqueci-senha {
+  margin: 20px 0 0;
+  text-align: center;
+  font: {
+    family: $main-font;
+    size: 13px;
+    weight: 600;
+  }
+}
+
+.login-form {
+  input, select, textarea {
+    width: 100%;
+    margin-bottom: 15px;
+    background: transparent;
+    font-size: 18px;
+  }
+  input, select {
+    height: 50px;
+  }
+  textarea {
+    min-height: 50px;
+  }
+  input[type^="submit"] {
+    background: $admin-main-color;
+    color: white;
+    border: 0;
+    padding: .5em 1em;
+    font-size: 16px;
+    margin-top: 1rem;
+    width: 70%;
+    display: block;
+  }
+  label {
+    margin: 5px 0 0;
+  }
+}
+
+.has-float-label {
+  @include float-label-container;
+  @include float-label;
+
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
+  input, select, textarea {
+    @include float-label-input;
+    font-size: inherit;
+    padding: 15px 0 0;
+    margin-bottom: 2px;
+    border: 0;
+    border-radius: 0;
+    border-bottom: 3px solid $admin-main-color;
+
+    @include float-label-scaled {
+      top: 20px;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $admin-main-color;
+    }
+  }
+}

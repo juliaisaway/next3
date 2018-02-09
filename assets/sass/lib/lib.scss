@@ -1,0 +1,130 @@
+////
+/// Lib.scss
+/// Neste arquivo estão localizadas todas as classes padrão
+/// para todos os projetos NEXT.
+////
+@import '../variables';
+
+// **************************************************
+// Criação de Font-Face
+// Cria um loop com todas as fontes listadas no arquivo _variables.scss
+// dentro da lista $font-faces;
+// **************************************************
+@each $font in $font-faces {
+  $font-family: nth($font, 1);
+  $font-variants: nth($font, 2);
+  @each $variant in $font-variants {
+    $font-file: nth($variant, 1);
+    $font-weight: nth($variant, 2);
+    $font-style: nth($variant, 3);
+    @include font-face($font-family, $font-file, $font-weight, $font-style)
+  }
+}
+
+// **************************************************
+// Equal Height
+// Igualiza a altura de todas as DIVs baseadas no parent.
+// **************************************************
+.equalheight {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  > [class*='col'] {
+    flex-direction: column;
+  }
+}
+
+// **************************************************
+// Espera de Cursor
+// Troca o cursor do mouse para o de espera ao enviar um formulário.
+// **************************************************
+.wait,
+.wait * {
+  cursor: wait !important;
+}
+
+// **************************************************
+// "no-select" em Links
+// Remove a caixa de seleção de elementos com link.
+// **************************************************
+
+.unselect,
+a:not(.select) {
+  @include prefix((user-select: none));
+}
+
+// **************************************************
+// Overlay
+// Classes básicas para a criação de Overlay.
+// **************************************************
+
+#overlay {
+  overflow: hidden;
+  text-align: center;
+  background-color: rgba($black, 0.5);
+  @include size(100%);
+  @include flexbox($display: none, $halign: center, $valign: center);
+  @include position($position: fixed, $left: 0, $top: 0, $zindex: 10000);
+
+  #overlay-box {
+    padding: 10px;
+    max-width: 85vw;
+    max-height: 85vh;
+    position: relative;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: $white;
+    @include size(auto);
+
+    img {
+      max-width: calc(85vw - 30px);
+      max-height: calc(85vh - 30px);
+      @include size(auto);
+    }
+
+    .close {
+      opacity: .8;
+      font-size: 14px;
+      text-shadow: none;
+      box-sizing: border-box;
+      color: $darker-font;
+      background: $light-background;
+      @include size(30);
+      @include transition(.2s ease-in);
+      @include flexbox($valign: center, $halign: center);
+      @include position($top: 10px, $right: 10px, $zindex: 200);
+      &:hover {
+        background: darken($light-background, 10);
+      }
+
+      &.darken {
+        margin: 5px;
+        background: $button-light;
+        border: 1px solid darken($button-light, 20);
+        &:hover {
+          background: darken($button-light, 10);
+        }
+      }
+
+      &.small {
+        @include size(20);
+        font-size: 16px;
+        line-height: 16px;
+        top: 2px;
+        right: 2px;
+        border-radius: 0;
+        border: 0;
+        background-color: transparent;
+        &:hover {
+          background-color: $overlay;
+          color: $black;
+        }
+      }
+
+    }
+
+  }
+
+}

@@ -1,0 +1,18 @@
+{
+  "name": "next_framework",
+  "title": "Next 3.0",
+  "version": "3.0.0-beta.2",
+  "private": true,
+  "description": "Framework MVC e CMS integrado para desenvolvimento de websites.",
+  "keywords": [
+    "Framework", "MVC", "CMS", "Next", "PHP", "Responsive website"
+  ],
+  "main": "index.php",
+  "author": "Ilton Alberto Junior, William Jacinto Venancio",
+  "license": "MPL-2.0",
+  "homepage": "http://ilton.me/next",
+  "repository": {
+    "type": "git",
+    "url": "https://iltonkombi@bitbucket.org/kombidesign/next-3.0.git"
+  }
+}

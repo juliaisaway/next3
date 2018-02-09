@@ -1,0 +1,128 @@
+////
+/// nextGrids
+/// Classes relacionadas ao sistema de grids interno do Next;
+////
+
+$grids: (
+        'columns': (
+                1:  8.33333333,
+                2:  16.66666667,
+                3:  25,
+                4:  33.33333333,
+                5:  41.66666667,
+                6:  50,
+                7:  58.33333333,
+                8:  66.66666667,
+                9:  75,
+                10: 83.33333333,
+                11: 91.66666667,
+                12: 100,
+        ),
+        'gutters': 15,
+        'container': 1170,
+);
+
+$grid-columns: map-get($grids, columns);
+$grid-columns-keys: map-keys($grid-columns);
+$grid-gutter: map-get($grids, gutters);
+$grid-container: map-get($grids, container);
+
+@function grid-size($value) {
+  @return map-get($grid-columns, $value);
+}
+
+@mixin col-settings($gutter) {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  min-height: 1px;
+  padding: 0 is-number-unit($gutter);
+  @media(max-width: 768px) {
+    float: none;
+    width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+@mixin col($width: auto, $gutter: $grid-gutter) {
+  @if $width == auto {
+    flex-basis: 0;
+    flex-grow: 1;
+    -ms-flex-positive: 1;
+    -ms-flex-preferred-size: 0;
+  } @else {
+    -ms-flex: 0 0 is-number-unit(grid-size($width), 0%);
+    flex: 0 0 is-number-unit(grid-size($width), 0%);
+  }
+  max-width: is-number-unit(grid-size($width), 0%);
+  box-sizing: border-box;
+  @include col-settings($gutter);
+}
+
+@mixin offset($width) {
+  margin-left: is-number-unit(grid-size($width), 0%);
+  @include breakpoint(mobile) {
+    margin-left: 0;
+  }
+}
+
+.grid-row {
+  width: 100%;
+  max-width: is-number-unit($grid-container);
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  margin: auto;
+  &.content {
+    padding: 0 is-number-unit($grid-gutter);
+  }
+  &.fluid {
+    max-width: 100%;
+  }
+}
+
+.col-break {
+  width: 100% !important;
+  min-height: 0 !important;
+}
+
+.grid-col {
+  flex-basis: 0;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  max-width: 100%;
+  box-sizing: border-box;
+  @include col-settings($grid-gutter);
+  @include breakpoint {
+    float: none;
+    width: 100%;
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}
+
+.reverse {
+  flex-direction: row-reverse;
+}
+
+.nopadding {
+  padding: 0 !important;
+}
+
+.hidden-mobile {
+  @include breakpoint(mobile) {
+    display: none!important;
+  }
+}
+
+@each $keys in $grid-columns-keys {
+  .grid-col#{$keys} {
+    @include col($keys);
+  }
+  .grid-offset-#{$keys} {
+    @include offset($keys);
+  }
+}

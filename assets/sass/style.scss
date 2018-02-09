@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+////
+/// Arquivo de estilização CSS
+/// Neste arquivo estão localizados todos os arquivos em SASS do projeto do site.
+/// Favor não inserir nenhuma classe neste arquivo, apenas includes.
+////
+
+/// Arquivo de Variáveis do site.
+/// Todas as variáveis possívels do projeto se localizam neste único arquivo.
+@import 'variables';
+
+/// Arquivos padrão do SASS.
+/// Não altere nenhum desses arquivos.
+@import 'compass';
+@import 'lib/functions';
+@import 'lib/mixins';
+@import 'lib/lib';
+@import 'lib/keyframes';
+
+/// Arquivos do sistema de Grid NEXT
+/// Ative sua funcionalidade no arquivo _variables.scss
+@import 'lib/grid';
+
+/// Includes das páginas de estilo do site.
+/// Inserir abaixo um novo arquivo .scss para cada página do site.
+@import 'includes/general';

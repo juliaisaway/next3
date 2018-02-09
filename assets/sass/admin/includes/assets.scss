@@ -1,0 +1,396 @@
+////
+/// Arquivo de estilização do Painel Adminstrativo
+/// Neste arquivo estão localizados todos os estilos visuais para o
+/// painel adminstrativo do website.
+////
+
+// **************************************************
+// TITLES
+// Estilização dos títulos do CMS
+// **************************************************
+
+h2 {
+  color: $darkgray;
+  margin: 0 0 30px;
+  @include font('Open Sans', 26, 300);
+}
+
+// **************************************************
+// ALERTS
+// Estilização dos alertas do CMS
+// **************************************************
+
+.alert-basic {
+  @include alert($admin-main-color, transparent);
+}
+
+@each $type, $color in $alerts {
+  .alert-#{$type} {
+    @include alert($color);
+  }
+}
+
+// **************************************************
+// HELPERS
+// Estilização das caixinhas de ajuda dos formulários
+// **************************************************
+
+.helper {
+  @include helper($admin-helper);
+}
+
+// **************************************************
+// BLOCKS
+// Estilização dos blocos do CMS
+// **************************************************
+
+.content-block {
+  margin: 15px 0;
+  color: $darkgray;
+  border: 1px solid $admin-lighten-main-color;
+  @include font('Open Sans', 14);
+
+  h3 {
+    padding: 12px 15px;
+    margin: 0;
+    background: $admin-title-bar;
+    @include font('Open Sans', 14);
+    @include size(100%, auto);
+    span {
+      @include helper($admin-helper);
+    }
+  }
+
+  &.blog {
+    max-width: 680px;
+    .content {
+      text-align: left;
+    }
+    p.date {
+      margin: 15px 0 0;
+      font-style: italic;
+      @include font('Open Sans', 12px);
+    }
+  }
+
+  .content {
+    padding: 15px;
+  }
+
+  .content.overlay {
+    padding: 5px 15px 15px;
+  }
+
+  p {
+    margin: 0;
+  }
+
+  a {
+    color: $darkgray;
+    &:hover, &:visited, &:active, &:focus {
+      text-decoration: none;
+      color: darken($darkgray, 10);
+    }
+  }
+}
+
+// **************************************************
+// TABLES
+// Estilização das tabelas do CMS
+// **************************************************
+
+.content-block {
+  .table {
+    margin: 0;
+    width: 100%;
+    display: table;
+    border-collapse: collapse;
+  }
+
+  .table-header {
+    background: $admin-background-light;
+    display: table-row;
+    box-sizing: border-box;
+    position: relative;
+
+    &.light {
+      background: transparent;
+      border-bottom: 1px solid $admin-lighten-main-color;
+      font-weight: 600;
+    }
+
+  }
+
+  .table-row {
+    display: table-row;
+    box-sizing: border-box;
+    position: relative;
+    border-bottom: 1px solid $admin-lighten-main-color;
+    &:last-child {
+      border: 0;
+    }
+  }
+
+  .table-header:not(.text) > *:not([type="hidden"]),
+  .table-row:not(.text) > *:not([type="hidden"]) {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 12px 15px;
+  }
+
+  .table-header > *:not([class="thumb"]):not([class="title"]),
+  .table-row > *:not([class="table_thumb"]):not([class="table_label"]) {
+    @include breakpoint {
+      display: none;
+    }
+  }
+
+}
+
+.table_label {
+  width: 30%;
+  max-width: 250px;
+  @include breakpoint {
+    width: calc(100% - 60px);
+    max-width: auto;
+  }
+}
+
+.table_thumb {
+  background: #ccc;
+  display: block;
+  border-right: 1px solid $admin-lighten-main-color;
+  background: {
+    color: $admin-background-light;
+    position: center;
+    size: cover;
+  }
+  @include size(60);
+}
+
+.options_buttons {
+  width: 120px;
+  min-width: 110px;
+  text-align: right;
+  position: relative;
+}
+
+.nada-encontrado {
+  padding: 12px 15px;
+}
+
+// **************************************************
+// GALLERY
+// Estilização da galeria do CMS
+// **************************************************
+
+.gallery_content {
+  margin: 15px 0;
+}
+
+.gallery_item {
+  border: 1px solid $admin-lighten-main-color;
+  background: $white;
+  padding: 5px;
+  margin: 15px 0;
+  @include breakpoint {
+    @include flexbox($wrap: nowrap);
+  }
+
+  .thumb {
+    position: relative;
+    background: {
+      color: $admin-background-light;
+      position: center;
+      size: cover;
+    }
+    @include proportion(1);
+    @include hover-message();
+    @include breakpoint {
+      width: 120px;
+      min-width: 120px;
+    }
+  }
+
+  h3 {
+    margin: 0;
+    width: 100%;
+    padding: 8px 15px;
+    text-align: center;
+    background: transparent;
+    @include font('Open Sans', 13);
+    @include breakpoint {
+      @include flexbox($valign: center, $halign: center);
+    }
+  }
+
+  .close {
+    opacity: .8;
+    font-size: 14px;
+    text-shadow: none;
+    color: $admin-helper-font;
+    background: $admin-title-bar;
+    @include size(30);
+    @include flexbox($valign: center, $halign: center);
+    @include position($top: 0, $right: 0, $zindex: 200);
+    &:hover {
+      background: darken($admin-title-bar, 10);
+    }
+  }
+
+  .options_buttons {
+    width: auto;
+    min-width: auto;
+    @include flexbox($halign: center);
+    & > * {
+      margin: 0 3px;
+    }
+  }
+
+}
+
+
+
+.media_preview {
+  @include flexbox($valign: center, $halign: center);
+  .image_holder {
+    max-width: 800px;
+  }
+  .image {
+    background: {
+      color: $admin-background-light;
+      size: cover;
+    }
+    @include size(100%, auto);
+  }
+}
+
+// **************************************************
+// BUTTONS
+// Estilização dos botões do CMS
+// **************************************************
+
+.action_button {
+  color: $darkgray;
+  display: inline-block;
+  padding: 8px 12px;
+  margin: 0 3px;
+  border-radius: 3px;
+  background-color: map-get($buttons, light);
+  @include transition(.2s ease-in);
+  &:hover {
+    background-color: darken(map-get($buttons, light), 10);
+  }
+}
+
+.active_button {
+  @include option-button($admin-main-color);
+}
+
+.inactive_button {
+  @include option-button($darkgray);
+}
+
+.light_button {
+  @include option-button($admin-background-light);
+}
+
+.options-form {
+  margin-top: 10px;
+  @include flexbox($halign: center, $wrap: nowrap);
+  @include breakpoint {
+    flex-wrap: wrap;
+  }
+
+  > * {
+    display: inline-block;
+    margin: 0 8px !important;
+    @include breakpoint {
+      width: 100%;
+      margin: 5px 0 !important;
+      &:first-child {
+        margin-top: 0;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+}
+
+
+// **************************************************
+// FORMS
+// Estilização dos formulários do CMS
+// **************************************************
+
+input, select, textarea {
+  background: map-get($forms, 'active');
+  border: 1px solid $admin-lighten-main-color;
+  border-radius: 0;
+  padding: 10px 15px;
+  margin: 3px 0;
+  @include size(100%, auto);
+  &[disabled] {
+    background: map-get($forms, 'disabled');
+  }
+  &[type="submit"] {
+    margin: 10px auto 0;
+    color: $white;
+    display: block;
+    cursor: pointer;
+    background: $admin-main-color;
+    @include size(auto);
+    @include transition(.2s ease-in);
+    @include breakpoint {
+      width: 100%;
+    }
+    &:hover {
+      background-color: darken($admin-main-color, 10);
+    }
+    &.post-submit {
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
+}
+
+label {
+  margin: 10px 0 0;
+  @include font('Open Sans', 12, 600);
+}
+
+// **************************************************
+// POST EDITOR
+// Estilização das páginas de edição do CMS
+// **************************************************
+
+.thumb_wide {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  border: 2px solid $admin-title-bar;
+  background: {
+    color: $admin-background-light;
+    size: cover;
+  }
+  @include proportion(16,9);
+  @include hover-message();
+}
+
+// **************************************************
+// SORTABLE
+// Estilização do marcador do Sortable jQuery
+// **************************************************
+
+.ui-sortable-placeholder {
+  border: 0;
+  width: 1px;
+  margin: 15px 0;
+  background: $admin-main-color;
+  @include breakpoint {
+    margin: 0 15px;
+    @include size(100%,1);
+  }
+}

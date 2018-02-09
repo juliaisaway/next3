@@ -1,0 +1,63 @@
+////
+/// Functions.scss
+/// Neste arquivo estão localizados todas as functions padrão
+/// para todos os projetos NEXT.
+/// Novas funções serão adicionadas com o tempo e podem ser
+/// conferidas em http://artmaker.website/next/sassdoc/
+/// @author Ilton Alberto Junior
+////
+
+/// Função para verificar se um valor passado é do tipo 'number' e se for, converter
+/// para um valor específico de uma unidade passada
+/// @param {number} $value - Valor para verificação.
+/// @param {string} $unit [px] - Unidade para conversão.
+/// @return {number|string} Resultado da verificação e conversão.
+/// @example is-number-unit(20, rem);
+@function is-number-unit($value, $unit: px){
+  $result: null;
+  @if (type-of($value) == "number") {
+    $result: if(unitless($value), $value * 1+$unit, $value);
+  } @else {
+    $result: $value;
+  }
+  @return $result;
+}
+
+/// Função que permite validar se a quantidade de parâmetros é maior ou igual que um valor pré-determinado.
+/// Caso não seja, retorne null
+/// @link http://codepen.io/jakob-e/pen/WvrJwN
+/// @param {string} $list Valores setados em `$arglist`.
+/// @param {number} $index Valor de comparação de quantos parâmetros existem em `$arglist`.
+/// @author jakob-e
+/// @return {mixed|null} item específico em uma lista ou null
+@function nth-or-null($list, $index) {
+  @return if(length($list) >= $index, nth($list, $index), null);
+}
+
+/// Função para calcular a proporção (ratio) entre dois valores.
+/// @param {list} $arglist - Valores para cálculo de proporção.
+/// @return {number} Valor em porcentagem da proporção.
+@function ratio($arglist) {
+  $map: keywords($arglist);
+  $height: map-get($map, height) or nth-or-null($arglist, 2);
+  $width: map-get($map, width) or nth-or-null($arglist, 1);
+  $ratio: map-get($map, ratio) or if($width and $height, $width / $height, nth-or-null($arglist, 1)) or 1;
+  @return 1 / $ratio * 100%;
+}
+
+/// Função para conversão de valores PX para REM.
+/// @param {Number} $pixels Valor em Pixels da fonte.
+/// @param {Number} $context Valor final em REM.
+/// @param {Number} $rem-base Valor padrão das fontes em REM.
+/// @return {number} valor em REM.
+/// @example font-size: rem(20);
+@function rem($pixels, $context: $rem-base) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+  @return $pixels / $context * 1rem;
+}
+

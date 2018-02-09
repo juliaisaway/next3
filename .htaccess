@@ -1,0 +1,10 @@
+AddDefaultCharset UTF-8
+
+RewriteEngine On
+RewriteBase /next/
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)/?$    index.php?url=$1    [QSA,L]
+
+RewriteEngine On
+RewriteRule ^libraries/phpinfo/$ libraries/phpinfo/phpinfo.php [L,NC]

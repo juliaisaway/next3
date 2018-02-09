@@ -1,0 +1,47 @@
+////
+/// Variáveis do Painel Adminstrativo
+/// Todas as variáveis do CMS estrão inclusas neste arquivo central.
+////
+
+// Cores padrões do projeto NEXT
+$white: #fff;
+$black: #000;
+$darkgray: #666;
+$overlay: #999;
+
+// Variáveis relativas ao Painel Adminstrativo.
+
+// Cores principais controladoras
+$admin-main-color: #098fd3;
+$admin-sidebar-color: #333;
+
+// Demais cores do site
+$admin-lighten-main-color: mix($admin-main-color, $white, 20);
+$admin-background-light: #f7f7f7;
+$admin-title-bar: #f0f0f0;
+$admin-helper: #ccc;
+$admin-helper-font: #333;
+
+// Cores das mensagens de alerta
+$alerts: (
+        'info': #b8daff,
+        'warning': #ffeeba,
+        'success': #c3e6cb,
+        'danger': #f5c6cb,
+);
+
+// Cores dos formulários
+$forms: (
+        'active': #f7f7f7,
+        'disabled': #ccc,
+);
+
+// Cores dos botões
+$buttons: (
+  'active': $admin-main-color,
+  'light': #eee,
+  'disabled': #666,
+);
+
+// Altura do logo
+$logo-height: 30px;
