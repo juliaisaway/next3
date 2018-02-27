@@ -41,7 +41,7 @@
                     <div class="action"></div>
                 </div>
                 <?php
-                    if(!isset($posts))
+                    if(!isset($posts) || !is_array($posts) || !is_object($posts))
                         echo '<div class="nada-encontrado" >Nenhum valor encontrado</div>';
                     else
                         foreach ($posts AS $row){

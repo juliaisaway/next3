@@ -21,45 +21,47 @@
     }
 
 ?>
-<div class="col-md-12">
+<div class="row">
+    <div class="col-md-12">
 
-    <?php require_once(realpath(dirname(__FILE__)) . '/../includes/notification.php'); ?>
+        <?php require_once(realpath(dirname(__FILE__)) . '/../includes/notification.php'); ?>
 
-    <h2><i class="fa <?= $pagina['section_icon'] ?>"></i> <?= $pagina['section_title'] ?></h2>
+        <h2><i class="fa <?= $pagina['section_icon'] ?>"></i> <?= $pagina['section_title'] ?></h2>
 
-    <?php if($perm_edit) { ?>
-        <div class="buttons-row">
-            <a href="?page=<?= $_GET['page'] ?>&action=new"><div class="active_button">Adicionar mídia</div></a>
-        </div>
-    <?php } ?>
+        <?php if($perm_edit) { ?>
+            <div class="buttons-row">
+                <a href="?page=<?= $_GET['page'] ?>&action=new"><div class="active_button">Adicionar mídia</div></a>
+            </div>
+        <?php } ?>
 
-    <div class="gallery_content">
-        <div class="row" data-type="<?= $dataType ?>" data-desc="<?= $desc ?>" data-action="<?= $config->paths->controller."/mediaController.php" ?>">
-            <?php
-                if(isset($media) && !is_array($media))
-                    echo '<div class="nada-encontrado" >Nenhum valor encontrado</div>';
-                else
-                    foreach ($media AS $row){
-            ?>
+        <div class="gallery_content">
+            <div class="row" data-type="<?= $dataType ?>" data-desc="<?= $desc ?>" data-action="<?= $config->paths->controller."/mediaController.php" ?>">
+                <?php
+                    if(isset($media) && !is_array($media))
+                        echo '<div class="col-md-12"><div class="content-block"><div class="nada-encontrado" >Nenhum valor encontrado</div></div></div>';
+                    else
+                        foreach ($media AS $row){
+                ?>
 
-                <div class="col-md-2">
-                    <div class="gallery_item" data-id="<?= $row[$dataType.'_id'] ?>">
-                        <div class="thumb" style="background-image: url(<?= $main_controller::folder.$row[$dataType.'_id'].'/'.$row[$dataType.'_file']; ?>)" data-image="<?= $row[$dataType.'_file'] ?>">
+                    <div class="col-md-2">
+                        <div class="gallery_item" data-id="<?= $row[$dataType.'_id'] ?>">
+                            <div class="thumb" style="background-image: url(<?= $main_controller::folder.$row[$dataType.'_id'].'/'.$row[$dataType.'_file']; ?>)" data-image="<?= $row[$dataType.'_file'] ?>">
 
-                            <?php if($perm_delete)
-                                echo '<a href="?page='.$_GET['page'].'&action=delete&id='.$row[$dataType.'_id'].'" class="close" title="Excluir imagem"><i class="fa fa-trash-alt"></i></a>' ?>
+                                <?php if($perm_delete)
+                                    echo '<a href="?page='.$_GET['page'].'&action=delete&id='.$row[$dataType.'_id'].'" class="close" title="Excluir imagem"><i class="fa fa-trash-alt"></i></a>' ?>
 
-                            <a href="?page=<?= $_GET['page'] ?>&action=edit&id=<?= $row[$dataType.'_id'] ?>"><div class="thumb_hover">Clique para visualizar</div></a>
+                                <a href="?page=<?= $_GET['page'] ?>&action=edit&id=<?= $row[$dataType.'_id'] ?>"><div class="thumb_hover">Clique para visualizar</div></a>
+                            </div>
+                                <h3 class="table_label"><?= $row[$dataType.'_title'] ?></h3>
                         </div>
-                            <h3 class="table_label"><?= $row[$dataType.'_title'] ?></h3>
                     </div>
-                </div>
 
-            <?php } ?>
-            <div class="clearfix"></div>
+                <?php } ?>
+                <div class="clearfix"></div>
+            </div>
         </div>
-    </div>
 
+    </div>
 </div>
 
 <script src="<?= $config->paths->js.'/admin/delete-overlay.js' ?>"></script>

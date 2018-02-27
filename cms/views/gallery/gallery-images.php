@@ -22,6 +22,9 @@
             <label>Imagem: </label>
             <input type="file" name="<?= $dataType.'_file' ?>" id="<?= $dataType.'_file' ?>"  accept="image/*" />
 
+            <label>Link: </label>
+            <input type="text" name="<?= $dataType.'_link' ?>" maxlength="120" placeholder="Link da imagem" required/>
+
             <input type='submit' name='<?= $dataType.'_'.$_GET['action'] ?>' value=' Salvar '/>
         </form>
     </div>

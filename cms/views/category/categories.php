@@ -44,7 +44,7 @@
                     <div class="action"></div>
                 </div>
                 <?php
-                if(!isset($cat))
+                if(!isset($cat) || !is_array($cat) || !is_object($cat))
                     echo '<div class="nada-encontrado" >Nenhum valor encontrado</div>';
                 else
                     foreach ($cat AS $row){
