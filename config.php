@@ -13,7 +13,7 @@
  * @package	next
  * @author Ilton Alberto Junior, William Jacinto Venancio
  * @copyright Copyright (c) 2018
- * @since Version 3.0.0-beta.2
+ * @since Version 3.0.0-beta.5
  * @filesource
  */
 
@@ -29,7 +29,7 @@ ini_set('default_charset','UTF-8');
  *
  */
 
-if(in_array($_SERVER["SERVER_ADDR"],array("127.0.0.1","::1"))){
+if(in_array($_SERVER["SERVER_ADDR"],["127.0.0.1","::1"])){
     $mode = 'local';
     $bar = '';
 } else {
@@ -46,11 +46,11 @@ $path = str_replace('\\','/',$bar.str_replace($root,'', __DIR__).DIRECTORY_SEPAR
  *---------------------------------------------------------------
  */
 
-return (object) array(
+return (object) [
     'maintenance' => false,
     'mode' => $mode,
     'path' => $path,
-    'paths' => (object) array(
+    'paths' => (object) [
         'abs' => 'http://'.$_SERVER['HTTP_HOST'].$path,
         'assets' => $path.'assets',
         'model' => $path.'models',
@@ -61,29 +61,33 @@ return (object) array(
         'css' => $path.'assets/css',
         'img' => $path.'assets/images',
         'js' => $path.'assets/js',
-    ),
-    'admin' => (object) array(
+    ],
+    'admin' => (object) [
         'path' => $path.'admin/',
         'includes' => $path.'admin/includes',
         'view' => $path.'admin/views',
-    ),
-    'cms_info' => (object) array(
+    ],
+    'cms_info' => (object) [
         'agency_name' => 'Kombi Design',
         'agency_link' => 'http://kombidesign.com.br',
         'year' => '2018',
-    ),
-    'db'=> (object) array(
+    ],
+    'debug' => (object) [
+        'maintenance' => false,
+        'smtp' => false
+    ],
+    'db'=> (object) [
         'host' => 'kdguia.com.br',
         'username' => 'kdguiaco_novocms',
         'password' => 'kombi18design',
         'database' => 'kdguiaco_novocms'
-    ),
-    'local_db' => (object) array(
+    ],
+    'local_db' => (object) [
         'host' => 'localhost',
         'username' => 'root',
         'password' => '',
-        'database' => 'kdcms_new'
-    ),
-);
+        'database' => 'next'
+    ],
+];
 
 ?>

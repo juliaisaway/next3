@@ -31,7 +31,7 @@ Após isso, abra o arquivo **config.php** e edite as configurações de banco de
 
 Caso trabalhe em servidor local, você pode colocar as configurações em **'local_db'**. O Next já está configurado para detectar seu servidor e alterar conforme o ambiente. 
 
-Após a configuração do banco de dados, você precisa atualizar seu banco de dados com o dump do Next. Para isso, basta enviar o arquivo **next_dump.sql**, localizado em /dump/, em seu banco de dados. Você pode utilizar o *phpMyAdmin* para isso ou com a seguinte linha de comando em um terminal MySQL.
+Após a configuração do banco de dados, você precisa atualizar seu banco de dados com o dump do Next. Para isso, basta enviar o arquivo **next_dump.sql** em seu banco de dados. Você pode utilizar o *phpMyAdmin* para isso ou com a seguinte linha de comando em um terminal MySQL.
 
 ```mysql
 mysql -u nomedeusuario -p next_database < next_dump.sql

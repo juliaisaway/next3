@@ -1,6 +1,5 @@
 /*
- *---------------------------------------------------------------
- * TinyMCE Update
+ * TinyMCE Update - Next
  *---------------------------------------------------------------
  *
  * Função Javascript para inbicializar o TinyMCE em campos de Textarea.

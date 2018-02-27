@@ -148,7 +148,7 @@
             // Abre o Overlay com a Imagem de Preview
             $('.thumb_hover').click(function () {
                 var data = $(this).parent().attr('data-image'),
-                    close = '<div class="close"><i class="fa fa-close"></i></div>';
+                    close = '<div class="close"><i class="fa fa-times"></i></div>';
                 o.overlayOpen(close + '<img src="<?= $main_controller::folder ?>' + data + '">')
             });
         <?php } ?>

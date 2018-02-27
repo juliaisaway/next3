@@ -1,6 +1,5 @@
 /*
- *---------------------------------------------------------------
- * FormData
+ * FormData - Next
  *---------------------------------------------------------------
  *
  * Função Javascript para envio de informações de Formulário via POST

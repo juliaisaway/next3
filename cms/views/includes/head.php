@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#000">
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
-<link rel="stylesheet" href="<?= $config->paths->css.'/vendor/font-awesome.min.css' ?>">
+<link rel="stylesheet" href="<?= $config->paths->css.'/vendor/fontawesome.min.css' ?>">
 <link rel="stylesheet" href="<?= $config->paths->css.'/vendor/jquery-ui.min.css' ?>">
 <link rel="stylesheet" href="<?= $config->paths->css.'/vendor/bootstrap.min.css' ?>">
 <link rel="stylesheet" href="<?= $config->paths->css.'/admin.css' ?>"/>
@@ -23,5 +23,6 @@
 <script src="<?= $config->paths->js.'/admin/tinymceupdate.js' ?>"></script>
 
 <script src="<?= $config->paths->js.'/library/overlay.js' ?>"></script>
+<script src="<?= $config->paths->js.'/library/accordion.js' ?>"></script>
 <script src="<?= $config->paths->js.'/library/utilities.js' ?>"></script>
 <script src="<?= $config->paths->js.'/inicializer.js' ?>"></script>

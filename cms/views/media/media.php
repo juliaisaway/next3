@@ -47,7 +47,7 @@
                         <div class="thumb" style="background-image: url(<?= $main_controller::folder.$row[$dataType.'_id'].'/'.$row[$dataType.'_file']; ?>)" data-image="<?= $row[$dataType.'_file'] ?>">
 
                             <?php if($perm_delete)
-                                echo '<a href="?page='.$_GET['page'].'&action=delete&id='.$row[$dataType.'_id'].'" class="close" title="Excluir imagem"><i class="fa fa-trash-o"></i></a>' ?>
+                                echo '<a href="?page='.$_GET['page'].'&action=delete&id='.$row[$dataType.'_id'].'" class="close" title="Excluir imagem"><i class="fa fa-trash-alt"></i></a>' ?>
 
                             <a href="?page=<?= $_GET['page'] ?>&action=edit&id=<?= $row[$dataType.'_id'] ?>"><div class="thumb_hover">Clique para visualizar</div></a>
                         </div>

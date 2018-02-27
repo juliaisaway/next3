@@ -55,8 +55,8 @@
                         <div class="options_buttons">
                             <?php
                                 // Cria os botões de Edição e Exclusão
-                                $edit_btn = '<a href="?page='.$_GET['page'].'&action=edit&id='.$row[$dataType.'_id'].'" class="action_button edit"><i class="fa fa-pencil"></i></a>';
-                                $delete_btn = '<a href="?page='.$_GET['page'].'&action=delete&id='.$row[$dataType.'_id'].'" class="action_button delete"><i class="fa fa-close"></i></a>';
+                                $edit_btn = '<a href="?page='.$_GET['page'].'&action=edit&id='.$row[$dataType.'_id'].'" class="action_button edit"><i class="fas fa-pencil-alt"></i></a>';
+                                $delete_btn = '<a href="?page='.$_GET['page'].'&action=delete&id='.$row[$dataType.'_id'].'" class="action_button delete"><i class="fa fa-times"></i></a>';
 
                                 // Caso o usuário possua a permissão para a ação, exibe o mesmo
                                 if($perm_view)

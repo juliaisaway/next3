@@ -1,6 +1,5 @@
 /*
- *---------------------------------------------------------------
- * Delete Overlay
+ * Delete Overlay - Next
  *---------------------------------------------------------------
  *
  * Função Javascript para confirmação de exclusão no Banco de Dados

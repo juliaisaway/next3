@@ -1,3 +1,12 @@
+/*
+ * Sendmail - NExt
+ *---------------------------------------------------------------
+ *
+ * Função Javascript para envio de informações de Formulário via POST
+ * para seu controlador correspondente
+ *
+ */
+
 var $body = $("body");
 
 $body.on('submit', 'form', function (e) {

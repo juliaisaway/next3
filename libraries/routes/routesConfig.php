@@ -1,7 +1,6 @@
 <?php
 /**
- * --------------------------------------------------
- * CONFIGURAÇÕES DE ROTAS
+ * Rotas - Next
  * --------------------------------------------------
  *
  * Todas as configurações principais de rotas do sistema ficam aqui

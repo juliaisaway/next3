@@ -46,7 +46,7 @@
                     <div class="gallery_item" data-id="<?= $row[$dataType.'_id'] ?>" data-image="<?= $row[$dataType.'_file'] ?>">
                         <div class="thumb" style="background-image: url(<?= $image_controller::folder.$row[$dataType.'_id'].'/'.$row[$dataType.'_file'] ?>)">
                             <?php if($perm_delete)
-                                echo '<a href="?page=gallery&action=delete&id=<?='.$row[$dataType.'_id'].'" class="close" title="Excluir imagem"><i class="fa fa-trash-o"></i></a>' ?>
+                                echo '<a href="?page=gallery&action=delete&id=<?='.$row[$dataType.'_id'].'" class="close" title="Excluir imagem"><i class="fa fa-trash-alt"></i></a>' ?>
                             <div class="thumb_hover">Clique para visualizar</div>
                         </div>
                         <h3 class="table_label"><?= $row[$dataType.'_title'] ?></h3>
@@ -71,7 +71,7 @@
             data = el.parent().parent(),
             image   = data.attr('data-image'),
             id      = data.attr('data-id'),
-            close = '<div class="close"><i class="fa fa-close"></i></div>';
+            close = '<div class="close"><i class="fa fa-times"></i></div>';
 
         el  .css('cursor', 'pointer')
             .click(function (e) {

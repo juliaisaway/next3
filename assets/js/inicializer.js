@@ -1,5 +1,4 @@
 /*
- *---------------------------------------------------------------
  * Inicializador Next
  *---------------------------------------------------------------
  *
@@ -9,12 +8,16 @@
 
 // Inicializadores de classes"
 var o = new Overlay(),
+    a = new Accordion(),
     lib = new NextUtilities();
 
 $(function(){
 
     // Inicializa o Overlay no site
     o.OverlayConstruct();
+
+    // Inicializa o Accordion no site
+    a.AccordionConstruct();
 
     // Cria a função do botão de Subir para a página
     $('#scrolltotop').click(function(){

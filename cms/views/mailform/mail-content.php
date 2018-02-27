@@ -19,8 +19,8 @@ if(isset($_GET['mail']) && $_GET['mail'] == 'cms_suporte') {
     $message = $dados['suporte_msg'];
 
     // E-mails de recebimento
-    $receiver = ['desenvolvimento@kombidesign.com.br', 'desenvolvimento2@kombidesign.com.br'];
-    $copy = 'iltonalberto@gmail.com';
+    $receiver = ['desenvolvimento2@kombidesign.com.br'];
+    $copy = 'comercial@kombidesign.com.br';
 
     // Define se será salvo a mensagem no banco de dados ou não
     $flag_save = false;
@@ -52,7 +52,7 @@ else if(isset($_GET['mail']) && $_GET['mail'] == 'cms_indique') {
     $message = $content;
 
     // E-mails de recebimento
-    $receiver = $dados['indique_mail'];
+    $receiver = [$dados['indique_destino']];
     $copy = 'comercial@kombidesign.com.br';
 
     // Define se será salvo a mensagem no banco de dados ou não

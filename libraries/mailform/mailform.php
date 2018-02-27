@@ -57,6 +57,8 @@ $body = str_replace("#sitename", $configs->site_name, $body );
 $body = str_replace("#title", $title, $body );
 $body = str_replace("#color", $configs->theme_bar_color, $body );
 $body = str_replace("#content", $content, $body );
+$body = str_replace("#data", date('d/m/Y'), $body );
+$body = str_replace("#ip", $_SERVER['REMOTE_ADDR'], $body );
 $body = str_replace("#siteurl", $config->paths->abs, $body );
 
 //Configurações de SMTP

@@ -11,7 +11,7 @@
         ?>
             <li>
                 <a href="?page=<?= $row['section_slug'] ?>" <?= (isset($row['section_sub']) && $row['section_sub'] == 'y')?'class="submenu"':'' ?>>
-                    <i class="fa <?= $row['section_icon'] ?>"></i> <?= $row['section_title'] ?>
+                    <i class="fas <?= $row['section_icon'] ?>"></i> <?= $row['section_title'] ?>
                 </a>
                 <?php if(isset($row['section_sub']) && $row['section_sub'] == 'y'){ ?>
                     <ul class="dropdown" style="<?= ($row['section_slug'] == $_GET['page'])?'':'display: none' ?>">
@@ -20,7 +20,7 @@
                                 $subperm = $role->hasPermission($item['sub_perm'], $user_id);
                                 if($subperm){
                         ?>
-                            <li><a href="<?= '?page='.$item['sub_slug'] ?>"><i class="fa <?= $item['sub_icon'] ?>"></i> <?= $item['sub_title'] ?></a></li>
+                            <li><a href="<?= '?page='.$item['sub_slug'] ?>"><i class="fas <?= $item['sub_icon'] ?>"></i> <?= $item['sub_title'] ?></a></li>
                         <?php } } ?>
                     </ul>
                 <?php } ?>

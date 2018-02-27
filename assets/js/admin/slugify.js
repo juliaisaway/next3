@@ -1,6 +1,5 @@
 /*
- *---------------------------------------------------------------
- * Slugify
+ * Slugify - Next
  *---------------------------------------------------------------
  *
  * Função Javascript para conversão de qualquer string para uma

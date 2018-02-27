@@ -1,0 +1,39 @@
+////
+/// Arquivo de estilização do login do Painel Adminstrativo
+/// Neste arquivo estão localizados todos os estilos visuais para a página de login
+////
+
+.mainpage {
+  min-width: 100vw;
+  min-height: 100vh;
+  background: $site-main-color;
+  @include flexbox($valign: center, $halign: center);
+}
+
+.message-box {
+  width: 100%;
+  max-width: 400px;
+  background: $white;
+  padding: 70px 50px;
+  box-shadow: 0 8px 10px -5px rgba($black,.2), 0 16px 24px 2px rgba($black,.14), 0 6px 30px 5px rgba($black,.12);
+
+  h2 {
+    margin: 0 0 30px;
+    color: $site-main-color;
+    @include font('Open Sans', 30, 700);
+  }
+
+  p:last-child {
+    margin: 0;
+  }
+
+}
+
+.logo-box {
+  @include flexbox($valign: center, $halign: center);
+  margin: 0 auto 30px;
+  img {
+    padding: 0;
+    @include size(auto, calc(30px * 1.5));
+  }
+}

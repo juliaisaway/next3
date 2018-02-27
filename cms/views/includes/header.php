@@ -10,7 +10,7 @@
                 <ul>
                     <li><a href="../"><i class="fa fa-link"></i> Visualizar site</a></li>
                     <li><a href="?page=user&action=edit&id=<?= $_SESSION['auth']['id']?>"><i class="fa fa-user"></i> Perfil</a></li>
-                    <li><a href="?action=logout"><i class="fa fa-sign-out"></i> Sair</a></li>
+                    <li><a href="?action=logout"><i class="fa fa-sign-out-alt"></i> Sair</a></li>
                 </ul>
             </div>
         </div>

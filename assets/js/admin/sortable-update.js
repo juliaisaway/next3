@@ -1,6 +1,5 @@
 /*
- *---------------------------------------------------------------
- * Sortable Update
+ * Sortable Update - Next
  *---------------------------------------------------------------
  *
  * Função Javascript para atualização no banco de dados a ordenação

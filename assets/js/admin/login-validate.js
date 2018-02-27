@@ -1,6 +1,5 @@
 /*
- *---------------------------------------------------------------
- * Login
+ * Login - Next
  *---------------------------------------------------------------
  *
  * Função Javascript para envio e validação do formulário de login do site.

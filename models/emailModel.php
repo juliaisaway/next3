@@ -21,6 +21,9 @@ class emailModel extends nextController{
      * @throws phpmailerException
      */
     function mailConfig($host, $port, $user, $pswd, $sender_name, $sender_mail, $subject){
+
+        $debug = false;
+
         $mail = new PHPMailer;
         $mail->setLanguage('pt_br', realpath(dirname(__FILE__)) . '/../../libraries/PHPMailer/language');
         $mail->WordWrap = 50;
@@ -31,11 +34,10 @@ class emailModel extends nextController{
         $mail->Username = $user;
         $mail->Password = $pswd;
         $mail->SMTPAuth = true;
+        $mail->SMTPSecure = 'ssl';
 
-        // Habilita o uso de SSL/TLS na autenticação do email
-        if(false) {
-            $mail->SMTPSecure = 'ssl';
-        }
+        if($debug == true)
+            $mail->SMTPDebug = 2;
 
         // Desabilita qualquer tipo de verificação. Não usar em produção
         if(in_array($_SERVER["SERVER_ADDR"],array("127.0.0.1","::1"))) {

@@ -30,7 +30,7 @@
                     $post_date = new DateTime($item->pubDate);
                     $date = $post_date->format('d/m/Y');
 
-                    $content = '<div class="close darken"><i class="fa fa-close"></i></div>';
+                    $content = '<div class="close darken"><i class="fa fa-times"></i></div>';
                     $content .= '<div class="content-block blog" style="margin: 0">';
                     $content .= '<h3>'.$item->title.'</h3>';
                     $content .= '<div class="content">';
