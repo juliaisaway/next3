@@ -35,6 +35,10 @@ $class_configs = new settingsController();
 // Chama as classes principais de uso Next
 $configs = $class_configs->getConfigs();
 
+// Requisição dos conteúdos Next
+require_once(realpath(dirname(__FILE__)) . '/views/includes/contents.php');
+
+// Define as variáveis globais de projeto
 global  $dataType,
         $user_id,
         $m;
