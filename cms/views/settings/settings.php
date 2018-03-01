@@ -59,12 +59,17 @@
                         echo '<div class="nada-encontrado" >Nenhum valor encontrado</div>';
                     else
                         foreach ($settings AS $row){
+
+                        if($row[$dataType.'_value'] == '')
+                            $value = 'Nenhum valor encontrado';
+                        else
+                            $value = $row[$dataType.'_value'];
                 ?>
                 <div class="table-row" data-id="<?= $row[$dataType.'_id'] ?>">
                     <div class="table_label">
                         <a href="?page=<?= $_GET['page'] ?>&action=edit&id=<?= $row[$dataType.'_id'] ?>"><?= $row[$dataType.'_label'] ?></a>
                     </div>
-                    <div class="table_value"><?= $row[$dataType.'_value'] ?></div>
+                    <div class="table_value"><?= $value ?></div>
                     <div class="options_buttons">
                         <?php
                             // Cria os botões de Edição e Exclusão
