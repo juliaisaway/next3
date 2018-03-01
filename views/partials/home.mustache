@@ -1,3 +1,16 @@
-<p>Olá, bem vindo ao {{site_name}}</p>
+<div class="logo-box">
+    <a href="{{site_url}}" title="{{site_name}}">
+        <img src="{{logo}}" alt="{{site_name}}">
+    </a>
+</div>
+    <div class="message">
+    <p>Olá, bem vindo ao {{site_name}}</p>
 
-<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam distinctio eos hic maiores maxime natus, sequi vero? Explicabo omnis ratione ullam. Asperiores debitis, ex maiores quam quas sint soluta vitae?</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam distinctio eos hic maiores maxime natus, sequi vero? Explicabo omnis ratione ullam. Asperiores debitis, ex maiores quam quas sint soluta vitae?</p>
+
+    <ul class="list">
+        {{#links}}
+            <li><a href="{{link}}" target="_blank">{{name}}</a></li>
+        {{/links}}
+    </ul>
+</div>

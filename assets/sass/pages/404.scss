@@ -37,3 +37,30 @@
     @include size(auto, calc(30px * 1.5));
   }
 }
+
+.list {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+
+  li {
+    margin: 0 6px;
+    display: inline-block;
+    font-weight: 600;
+    list-style: none;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    a {
+      color: $site-main-color;
+      &:hover {
+        color: darken($site-main-color, 10);
+        text-decoration: none;
+        border-bottom: 1px dotted $darkgray;
+      }
+    }
+  }
+
+}

@@ -68,8 +68,8 @@ return (object) [
         'view' => $path.'admin/views',
     ],
     'cms_info' => (object) [
-        'agency_name' => 'Kombi Design',
-        'agency_link' => 'http://kombidesign.com.br',
+        'agency_name' => 'Next Framework',
+        'agency_link' => 'http://ilton.me/next',
         'year' => '2018',
     ],
     'debug' => (object) [
@@ -77,16 +77,16 @@ return (object) [
         'smtp' => false
     ],
     'db'=> (object) [
-        'host' => 'kdguia.com.br',
-        'username' => 'kdguiaco_novocms',
-        'password' => 'kombi18design',
-        'database' => 'kdguiaco_novocms'
+        'host' => 'localhost',
+        'username' => 'root',
+        'password' => '',
+        'database' => 'next3'
     ],
     'local_db' => (object) [
         'host' => 'localhost',
         'username' => 'root',
         'password' => '',
-        'database' => 'next'
+        'database' => 'next3'
     ],
 ];
 

@@ -3,17 +3,21 @@
 </head>
 <body>
 
-<section id="404" class="mainpage">
+<section id="home" class="mainpage">
     <div class="message-box">
-        <div class="logo-box">
-            <a href="#"><img src="<?= $config->paths->img.'/logo-color.svg' ?>" alt=""></a>
-        </div>
-        <div class="message">
             <?php
-                $array = ['site_name' => $configs->site_name];
+                $array = [
+                    'site_name' => $configs->site_name,
+                    'site_url' => $config->path,
+                    'logo' => $config->paths->img.'/logo-color.svg',
+                    'links' => [
+                        ['name' => 'PHP', 'link' => 'http://www.php.net/'],
+                        ['name' =>  'SASS', 'link' => 'http://sass-lang.com/'],
+                        ['name' => 'JQUERY', 'link' => 'http://jquery.com/'],
+                        ['name' => 'MUSTACHE', 'link' => 'http://mustache.github.io/']
+                    ]
+                ];
                 echo $m->render('home', $array);
             ?>
-            <p><b><a href="http://www.php.net/" target="_blank">PHP</a> | <a href="http://sass-lang.com/" target="_blank">SASS</a> | <a href="https://jquery.com/" target="_blank">JQUERY</a></b></b></p>
-        </div>
     </div>
 </section>

@@ -1,10 +1,14 @@
 AddDefaultCharset UTF-8
 
 RewriteEngine On
-RewriteBase /next/
+
+# Insira aqui sua URL do projeto Next
+RewriteBase /others/next/
+
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)/?$    index.php?url=$1    [QSA,L]
 
+#Redireciona automaticamente o usuário para o arquivo de phpInfo
 RewriteEngine On
 RewriteRule ^libraries/phpinfo/$ libraries/phpinfo/phpinfo.php [L,NC]
