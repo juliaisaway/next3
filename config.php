@@ -13,7 +13,7 @@
  * @package	next
  * @author Ilton Alberto Junior, William Jacinto Venancio
  * @copyright Copyright (c) 2018
- * @since Version 3.0.0-beta.6
+ * @since Version 3.0.0-beta.7
  * @filesource
  */
 

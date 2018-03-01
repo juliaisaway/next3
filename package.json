@@ -1,7 +1,7 @@
 {
   "name": "next_framework",
   "title": "Next 3.0",
-  "version": "3.0.0-beta.6",
+  "version": "3.0.0-beta.7",
   "private": true,
   "description": "Framework MVC e CMS integrado para desenvolvimento de websites.",
   "keywords": [
@@ -13,6 +13,6 @@
   "homepage": "http://ilton.me/next",
   "repository": {
     "type": "git",
-    "url": "https://iltonkombi@bitbucket.org/kombidesign/next-3.0.git"
+    "url": "https://github.com/iltonjr/next3.git"
   }
 }

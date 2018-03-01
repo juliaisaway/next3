@@ -59,10 +59,11 @@ O Next é desenvolvido todo em PHP, utilizando o modelo MVC *(Model / View / Con
 
 ## Bibliotecas utilizadas
 
+* [Kint](https://kint-php.github.io/kint/) - Utilizado para simplificar e melhorar a depuração de código PHP.
+* [Mustache](https://mustache.github.io/) - Engine de Templates para PHP
 * [PHPMailer](https://github.com/PHPMailer/PHPMailer) - Biblioteca de disparo e envio de emails universal feita em PHP.
 * [Php-BRac](http://phprbac.net/) - Biblioteca de controle de acessos baseada em permissões.
 * [PHP-Info](https://github.com/SynCap/PHP-Info) - Visualizador de informações do PHP de forma organizada e intuitiva.
-* [Kint](https://kint-php.github.io/kint/) - Utilizado para simplificar e melhorar a depuração de código PHP.
 * [SASS](http://sass-lang.com/) - Pré-compilador CSS com foco em produtividade e interatividade.
 
 ## Versionamento
@@ -77,6 +78,7 @@ O Next utiliza o padrão de versionamento universal proposto no projeto [Semanti
 Agradecimentos especiais a todos os colaboradores do Projeto Next
 
 > * Anderson Silveira
+> * Fernando Dias Motta
 > * Marcus Felet
 > * Mario Mariano
 > * Michel Castilho
