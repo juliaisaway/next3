@@ -3,7 +3,7 @@ AddDefaultCharset UTF-8
 RewriteEngine On
 
 # Insira aqui sua URL do projeto Next
-RewriteBase /others/next/
+RewriteBase /next3/
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

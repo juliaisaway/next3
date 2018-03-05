@@ -1,6 +1,6 @@
 -- --------------------------------------------------------
 -- Servidor:                     127.0.0.1
--- Versão do servidor:           10.1.28-MariaDB - mariadb.org binary distribution
+-- Versão do servidor:           10.1.30-MariaDB - mariadb.org binary distribution
 -- OS do Servidor:               Win32
 -- HeidiSQL Versão:              9.5.0.5196
 -- --------------------------------------------------------
@@ -26,6 +26,7 @@ CREATE TABLE IF NOT EXISTS `categories` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Copiando dados para a tabela next3.categories: ~0 rows (aproximadamente)
+DELETE FROM `categories`;
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 
@@ -43,6 +44,7 @@ CREATE TABLE IF NOT EXISTS `emails` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- Copiando dados para a tabela next3.emails: ~0 rows (aproximadamente)
+DELETE FROM `emails`;
 /*!40000 ALTER TABLE `emails` DISABLE KEYS */;
 /*!40000 ALTER TABLE `emails` ENABLE KEYS */;
 
@@ -55,6 +57,7 @@ CREATE TABLE IF NOT EXISTS `galleries` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Copiando dados para a tabela next3.galleries: ~0 rows (aproximadamente)
+DELETE FROM `galleries`;
 /*!40000 ALTER TABLE `galleries` DISABLE KEYS */;
 /*!40000 ALTER TABLE `galleries` ENABLE KEYS */;
 
@@ -72,6 +75,7 @@ CREATE TABLE IF NOT EXISTS `galleries_img` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Copiando dados para a tabela next3.galleries_img: ~0 rows (aproximadamente)
+DELETE FROM `galleries_img`;
 /*!40000 ALTER TABLE `galleries_img` DISABLE KEYS */;
 /*!40000 ALTER TABLE `galleries_img` ENABLE KEYS */;
 
@@ -85,6 +89,7 @@ CREATE TABLE IF NOT EXISTS `log` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Copiando dados para a tabela next3.log: ~0 rows (aproximadamente)
+DELETE FROM `log`;
 /*!40000 ALTER TABLE `log` DISABLE KEYS */;
 /*!40000 ALTER TABLE `log` ENABLE KEYS */;
 
@@ -97,6 +102,7 @@ CREATE TABLE IF NOT EXISTS `media` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Copiando dados para a tabela next3.media: ~0 rows (aproximadamente)
+DELETE FROM `media`;
 /*!40000 ALTER TABLE `media` DISABLE KEYS */;
 /*!40000 ALTER TABLE `media` ENABLE KEYS */;
 
@@ -115,6 +121,7 @@ CREATE TABLE IF NOT EXISTS `posts` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Copiando dados para a tabela next3.posts: ~0 rows (aproximadamente)
+DELETE FROM `posts`;
 /*!40000 ALTER TABLE `posts` DISABLE KEYS */;
 /*!40000 ALTER TABLE `posts` ENABLE KEYS */;
 
@@ -131,9 +138,10 @@ CREATE TABLE IF NOT EXISTS `role_permissions` (
   KEY `Rght` (`Rght`)
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
--- Copiando dados para a tabela next3.role_permissions: ~13 rows (aproximadamente)
+-- Copiando dados para a tabela next3.role_permissions: ~18 rows (aproximadamente)
+DELETE FROM `role_permissions`;
 /*!40000 ALTER TABLE `role_permissions` DISABLE KEYS */;
-REPLACE INTO `role_permissions` (`ID`, `Lft`, `Rght`, `Title`, `Description`) VALUES
+INSERT INTO `role_permissions` (`ID`, `Lft`, `Rght`, `Title`, `Description`) VALUES
 	(1, 0, 35, 'root', 'root'),
 	(2, 1, 6, 'gallery_delete', 'Can delete gallery items'),
 	(3, 2, 5, 'gallery_edit', 'Can edit gallery items'),
@@ -163,8 +171,9 @@ CREATE TABLE IF NOT EXISTS `role_rolepermissions` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- Copiando dados para a tabela next3.role_rolepermissions: ~22 rows (aproximadamente)
+DELETE FROM `role_rolepermissions`;
 /*!40000 ALTER TABLE `role_rolepermissions` DISABLE KEYS */;
-REPLACE INTO `role_rolepermissions` (`RoleID`, `PermissionID`, `AssignmentDate`) VALUES
+INSERT INTO `role_rolepermissions` (`RoleID`, `PermissionID`, `AssignmentDate`) VALUES
 	(1, 1, 1517226741),
 	(1, 18, 1517334441),
 	(2, 2, 1517226850),
@@ -203,8 +212,9 @@ CREATE TABLE IF NOT EXISTS `role_roles` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- Copiando dados para a tabela next3.role_roles: ~4 rows (aproximadamente)
+DELETE FROM `role_roles`;
 /*!40000 ALTER TABLE `role_roles` DISABLE KEYS */;
-REPLACE INTO `role_roles` (`ID`, `Lft`, `Rght`, `Title`, `Description`) VALUES
+INSERT INTO `role_roles` (`ID`, `Lft`, `Rght`, `Title`, `Description`) VALUES
 	(1, 0, 7, 'root', 'root'),
 	(2, 1, 6, 'administrador', 'Administrador do site'),
 	(3, 2, 5, 'editor', 'Editor do site'),
@@ -220,8 +230,9 @@ CREATE TABLE IF NOT EXISTS `role_userroles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- Copiando dados para a tabela next3.role_userroles: ~4 rows (aproximadamente)
+DELETE FROM `role_userroles`;
 /*!40000 ALTER TABLE `role_userroles` DISABLE KEYS */;
-REPLACE INTO `role_userroles` (`UserID`, `RoleID`, `AssignmentDate`) VALUES
+INSERT INTO `role_userroles` (`UserID`, `RoleID`, `AssignmentDate`) VALUES
 	(1, 1, 1517227016),
 	(2, 2, 1517227016),
 	(3, 3, 1517227016),
@@ -242,8 +253,9 @@ CREATE TABLE IF NOT EXISTS `sections` (
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 -- Copiando dados para a tabela next3.sections: ~8 rows (aproximadamente)
+DELETE FROM `sections`;
 /*!40000 ALTER TABLE `sections` DISABLE KEYS */;
-REPLACE INTO `sections` (`id_section`, `section_title`, `section_slug`, `section_icon`, `section_order`, `section_sub`, `section_menu`, `section_perm`) VALUES
+INSERT INTO `sections` (`id_section`, `section_title`, `section_slug`, `section_icon`, `section_order`, `section_sub`, `section_menu`, `section_perm`) VALUES
 	(1, 'Página Inicial', 'home', 'fa-home', 1, 'n', 'y', 'user_view'),
 	(2, 'Galeria de Banners', 'gallery', 'fa-tv', 2, 'n', 'y', 'gallery_view'),
 	(3, 'Publicações', 'post', 'fa-edit', 4, 'y', 'y', 'post_view'),
@@ -269,8 +281,9 @@ CREATE TABLE IF NOT EXISTS `sections_sub` (
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 -- Copiando dados para a tabela next3.sections_sub: ~7 rows (aproximadamente)
+DELETE FROM `sections_sub`;
 /*!40000 ALTER TABLE `sections_sub` DISABLE KEYS */;
-REPLACE INTO `sections_sub` (`id_sub`, `fk_section`, `sub_title`, `sub_slug`, `sub_icon`, `sub_order`, `sub_perm`) VALUES
+INSERT INTO `sections_sub` (`id_sub`, `fk_section`, `sub_title`, `sub_slug`, `sub_icon`, `sub_order`, `sub_perm`) VALUES
 	(1, 3, 'Nova publicação', 'post&action=new', 'fa-plus', 1, 'post_edit'),
 	(2, 3, 'Gerenciar', 'post&section=manage', 'fa-copy', 2, 'post_view'),
 	(3, 3, 'Categorias', 'category', 'fa-tags', 3, 'post_view'),
@@ -293,9 +306,10 @@ CREATE TABLE IF NOT EXISTS `settings` (
   CONSTRAINT `FK_config_config_cat` FOREIGN KEY (`settings_category`) REFERENCES `settings_cat` (`cat_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
--- Copiando dados para a tabela next3.settings: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela next3.settings: ~21 rows (aproximadamente)
+DELETE FROM `settings`;
 /*!40000 ALTER TABLE `settings` DISABLE KEYS */;
-REPLACE INTO `settings` (`settings_id`, `settings_label`, `settings_value`, `settings_key`, `settings_field`, `settings_category`) VALUES
+INSERT INTO `settings` (`settings_id`, `settings_label`, `settings_value`, `settings_key`, `settings_field`, `settings_category`) VALUES
 	(1, 'Nome do site', 'Next Framework 3', 'site_name', 'text', 1),
 	(2, 'Description', 'Framework MVC e CMS em PHP para gerenciamento de websites', 'description', 'text', 1),
 	(3, 'Keywords', 'next, framework, mvc, cms, admin, php7', 'keywords', 'text', 1),
@@ -306,8 +320,8 @@ REPLACE INTO `settings` (`settings_id`, `settings_label`, `settings_value`, `set
 	(8, 'Facebook', NULL, 'social_fb', 'text', 3),
 	(9, 'YouTube', NULL, 'social_yt', 'text', 3),
 	(10, 'Telefone', NULL, 'telefone', 'text', 4),
-	(11, 'ID Google Analytics', 'UA-XXXXX-Y', 'g_analytics', 'text', 1),
-	(13, 'Key do Google Maps', 'XXXXX-Y', 'g_maps_key', 'text', 1),
+	(11, 'ID Google Analytics', NULL, 'g_analytics', 'text', 1),
+	(13, 'Key do Google Maps', NULL, 'g_maps_key', 'text', 1),
 	(14, 'Senha para disparo', '18kombidesign18', 'pswd_smtp', 'text', 2),
 	(15, 'Instagram', NULL, 'social_it', 'text', 3),
 	(16, 'Twitter', NULL, 'social_tw', 'text', 3),
@@ -329,9 +343,10 @@ CREATE TABLE IF NOT EXISTS `settings_cat` (
   PRIMARY KEY (`cat_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
--- Copiando dados para a tabela next3.settings_cat: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela next3.settings_cat: ~4 rows (aproximadamente)
+DELETE FROM `settings_cat`;
 /*!40000 ALTER TABLE `settings_cat` DISABLE KEYS */;
-REPLACE INTO `settings_cat` (`cat_id`, `cat_title`, `cat_slug`, `cat_icon`, `cat_order`) VALUES
+INSERT INTO `settings_cat` (`cat_id`, `cat_title`, `cat_slug`, `cat_icon`, `cat_order`) VALUES
 	(1, 'Configurações Básicas', 'general', 'fa-wrench', 1),
 	(2, 'Configurações de E-mails', 'mail', 'fa-envelope', 3),
 	(3, 'Redes Sociais', 'social', 'fa-share-alt', 4),
@@ -348,9 +363,10 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
--- Copiando dados para a tabela next3.users: ~0 rows (aproximadamente)
+-- Copiando dados para a tabela next3.users: ~4 rows (aproximadamente)
+DELETE FROM `users`;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-REPLACE INTO `users` (`user_id`, `user_name`, `user_login`, `user_email`, `user_password`) VALUES
+INSERT INTO `users` (`user_id`, `user_name`, `user_login`, `user_email`, `user_password`) VALUES
 	(1, 'Usuário Root', 'root', 'root@email.com.br', '$2y$10$9zZ8QNAVrxeuf6A8qEgsQu3OQ7sta6htv1jJXYogYN2E7UHMyUQRW'),
 	(2, 'Usuário Administrador', 'admin', 'admin@email.com.br', '$2y$10$6H1F33wo9hc8Mku0G6rtRuCmszhxjM47TsUNIJEHFcSxran6x4ziy'),
 	(3, 'Usuário Editor', 'editor', 'editor@email.com.br', '$2y$10$Rjr20R0oNALI3cFnmEREfOpx62p3QihWqaEhejMJvSwFpbGSmSERW'),

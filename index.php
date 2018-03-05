@@ -11,7 +11,7 @@
 $config = include_once('config.php');
 
 // Requisição das rotas do Front-end
-require_once('routes.php');
+require_once('config/routes.php');
 
 // Requisição das Bibliotecas Next
 require_once(realpath(dirname(__FILE__)).'/libraries/Mustache/Autoloader.php');
@@ -47,9 +47,7 @@ global  $dataType,
 
 <!DOCTYPE html>
 <html lang="pt-br">
-<?php
-    include($pagina);
-    require_once('views/includes/functions.php');
-?>
-</body>
+
+<?php include(realpath(dirname(__FILE__)).'/views/'.$file); ?>
+
 </html>

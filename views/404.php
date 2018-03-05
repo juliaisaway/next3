@@ -4,5 +4,9 @@
 <body>
 
 <section id="404" class="mainpage">
-    <?= $m->render('404', $home); ?>
+    <?= $m->render($partial, $home); ?>
 </section>
+
+<?php require_once('includes/functions.php'); ?>
+
+</body>
