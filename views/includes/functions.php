@@ -8,7 +8,7 @@
  */
 
     // Insere uma quebra de linha no início para identar corretamente
-    echo "\n\n";
+    echo "\n";
 
     // Lista todos os arquivos de bibliotecas Javascript do Next
     $libraries = (object) [
@@ -25,11 +25,10 @@
 
     // Insere a chave de API do Gooogle Maps
     if(isset($configs->g_maps_key) && $configs->g_maps_key != "")
-        echo '<script src="https://maps.googleapis.com/maps/api/js?key={$configs->g_maps_key}"></script>';
+        echo "<script src='https://maps.googleapis.com/maps/api/js?key={$configs->g_maps_key}'></script>\n";
 
     // Insere o código de identificação do Google Analytics
-    if(isset($configs->g_analytics) && $configs->g_analytics != "") {
-
+    if(isset($configs->g_analytics) && $configs->g_analytics != "")
         echo <<<HERE
             <script async src="https://www.googletagmanager.com/gtag/js?id={$configs->g_analytics}"></script>
             <script>
@@ -40,7 +39,5 @@
                 gtag('config', '{$configs->g_analytics}');
             </script>
 HERE;
-
-    }
 
 ?>

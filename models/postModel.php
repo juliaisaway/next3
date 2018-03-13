@@ -1,9 +1,11 @@
 <?php
 require_once(realpath(dirname(__FILE__))."/../controllers/core/nextController.php");
 require_once(realpath(dirname(__FILE__))."/../controllers/traits/traitSlugify.php");
+require_once(realpath(dirname(__FILE__))."/../controllers/traits/traitBreadcrumb.php");
 
 class postModel extends nextController {
     use traitSlugify;
+    use traitBreadcrumb;
 
     const   key = 'post_id',
             table = 'posts',

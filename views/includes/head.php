@@ -16,6 +16,7 @@ $metatags = (object) [
     (object) ["type" => "name", "name" => "keywords", "value" => $configs->keywords],
     (object) ["type" => "property", "name" => "og:title", "value" => $configs->site_name],
     (object) ["type" => "property", "name" => "og:description", "value" => $configs->description],
+    (object) ["type" => "property", "name" => "og:url", "value" => $config->paths->abs],
 ];
 // Constrói as metatags do site
 echo "<!-- Metatags do website para os motores de busca --> \n";

@@ -49,7 +49,6 @@ $path = str_replace('\\','/',$bar.str_replace($root,'', __DIR__).DIRECTORY_SEPAR
 return (object) [
     'maintenance' => false,
     'mode' => $mode,
-    'realpath' => realpath(dirname(__FILE__)),
     'path' => $path,
     'paths' => (object) [
         'abs' => 'http://'.$_SERVER['HTTP_HOST'].$path,

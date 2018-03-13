@@ -46,7 +46,7 @@ function DeleteBox($linha) {
                 }, 1000);
             }
             else {
-                wait(false);
+                lib.wait(false);
                 o.OverlayMessage('Erro', data);
             }
         });
