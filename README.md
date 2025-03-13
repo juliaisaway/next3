@@ -72,7 +72,7 @@ O Next utiliza o padrão de versionamento universal proposto no projeto [Semanti
 
 ## Autores
 
-* **Ilton Alberto Junior** - *Front-end / Back-end / Documentação*
+* **Júlia Alberto** - *Front-end / Back-end / Documentação*
 * **WIlliam Jacinto Venâncio** - *Back-end / Documentação*
 
 Agradecimentos especiais a todos os colaboradores do Projeto Next
